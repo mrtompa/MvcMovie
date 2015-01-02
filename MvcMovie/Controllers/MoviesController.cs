@@ -7,13 +7,30 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
+using MvcMovie.Helpers;
 using MvcMovie.Models;
 
 namespace MvcMovie.Controllers
 {
-    public class MoviesController : Controller
+    public class MoviesController : BaseController
     {
         private MovieDBContext db = new MovieDBContext();
+
+        public ActionResult SetCulture(string culture)
+        {
+            culture = CultureHelper.GetImplementedCulture(culture);
+            HttpCookie cookie = Request.Cookies["culture"];
+            if (cookie != null)
+                cookie.Value = culture; // update cookie
+            else
+            {
+                cookie = new HttpCookie("culture");
+                cookie.Value = culture;
+                cookie.Expires = DateTime.Now.AddYears(1);
+            }
+            Response.Cookies.Add(cookie);
+            return RedirectToAction("Index");
+        }
 
         // GET: Movies
         public ActionResult Index(string movieGenre, string searchString)
