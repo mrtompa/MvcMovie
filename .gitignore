@@ -5,3 +5,5 @@
 *.mdf
 *.ldf
 /MvcMovie/Migrations
+/MvcMovie/Resources/bin/Debug
+/MvcMovie/Resources/obj/Debug
