@@ -159,6 +159,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HelloWorldController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -166,6 +167,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="Migrations\201412291413416_Initial.cs" />
     <Compile Include="Migrations\201412291413416_Initial.Designer.cs">
       <DependentUpon>201412291413416_Initial.cs</DependentUpon>
@@ -177,6 +179,10 @@
     <Compile Include="Migrations\201412301220301_DataAnnotations.cs" />
     <Compile Include="Migrations\201412301220301_DataAnnotations.Designer.cs">
       <DependentUpon>201412301220301_DataAnnotations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501021304153_DataAnnotation.cs" />
+    <Compile Include="Migrations\201501021304153_DataAnnotation.Designer.cs">
+      <DependentUpon>201501021304153_DataAnnotation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -609,6 +615,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -627,6 +634,15 @@
     <EmbeddedResource Include="Migrations\201412301220301_DataAnnotations.resx">
       <DependentUpon>201412301220301_DataAnnotations.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501021304153_DataAnnotation.resx">
+      <DependentUpon>201501021304153_DataAnnotation.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{b3fca9f2-eb16-4b09-a262-eebd686d55ac}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
