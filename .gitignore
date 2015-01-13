@@ -7,3 +7,4 @@
 /MvcMovie/Migrations
 /MvcMovie/Resources/bin/Debug
 /MvcMovie/Resources/obj/Debug
+*.suo
