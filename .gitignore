@@ -22,6 +22,7 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
+[Mm]igrations/
 
 # ReSharper is a .NET coding add-in
 _ReSharper*/
