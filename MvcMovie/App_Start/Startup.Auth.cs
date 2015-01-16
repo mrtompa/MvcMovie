@@ -60,8 +60,8 @@ namespace MvcMovie
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId = "719917689107-p6aeoktnnqmk5hnvo71ueqgko9gfiduh.apps.googleusercontent.com",
-                ClientSecret = "VHGCEBJWjNmJ6ckIrOJS5zzN"
+                ClientId = "xxxxx.apps.googleusercontent.com",
+                ClientSecret = "00000000"
             });
         }
     }
