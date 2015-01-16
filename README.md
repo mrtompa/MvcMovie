@@ -9,5 +9,8 @@ http://www.asp.net/mvc/overview/getting-started/introduction/getting-started
 MVC Internationalization
 http://afana.me/post/aspnet-mvc-internationalization.aspx
 
+OAUT2 Authentication
+http://www.asp.net/mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on#goog
+
 
 
