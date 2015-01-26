@@ -30,4 +30,4 @@ _ReSharper*/
 *.[Rr]e[Ss]harper
 *.DotSettings.user
 
-\MvcMovie\App_Start\Startup.Auth.cs
+MvcMovie/App_Start/Startup.Auth.cs

@@ -15,7 +15,7 @@
     <AssemblyName>MvcMovie</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort>44300</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
@@ -173,21 +173,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CultureHelper.cs" />
-    <Compile Include="Migrations\201412291424221_Rating.cs" />
-    <Compile Include="Migrations\201412291424221_Rating.Designer.cs">
-      <DependentUpon>201412291424221_Rating.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201412301220301_DataAnnotations.cs" />
-    <Compile Include="Migrations\201412301220301_DataAnnotations.Designer.cs">
-      <DependentUpon>201412301220301_DataAnnotations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201501021304153_DataAnnotation.cs" />
-    <Compile Include="Migrations\201501021304153_DataAnnotation.Designer.cs">
-      <DependentUpon>201501021304153_DataAnnotation.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201501150853072_Initial.cs" />
     <Compile Include="Migrations\201501150853072_Initial.Designer.cs">
       <DependentUpon>201501150853072_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501220911338_MoveDB.cs" />
+    <Compile Include="Migrations\201501220911338_MoveDB.Designer.cs">
+      <DependentUpon>201501220911338_MoveDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -207,7 +199,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Properties\PublishProfiles\MvcMovie1337.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\globalize\cultures\globalize.culture.af-ZA.js" />
     <Content Include="Scripts\globalize\cultures\globalize.culture.af.js" />
@@ -574,7 +565,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -637,17 +630,11 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201412291424221_Rating.resx">
-      <DependentUpon>201412291424221_Rating.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201412301220301_DataAnnotations.resx">
-      <DependentUpon>201412301220301_DataAnnotations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201501021304153_DataAnnotation.resx">
-      <DependentUpon>201501021304153_DataAnnotation.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201501150853072_Initial.resx">
       <DependentUpon>201501150853072_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501220911338_MoveDB.resx">
+      <DependentUpon>201501220911338_MoveDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -674,7 +661,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>59685</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44301/</IISUrl>
+          <IISUrl>http://localhost/MvcMovie</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
@@ -684,6 +671,8 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SSDT\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(VisualStudioVersion)' == ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(VisualStudioVersion)' != ''" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
