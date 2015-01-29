@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -173,15 +175,28 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CultureHelper.cs" />
-    <Compile Include="Migrations\201501150853072_Initial.cs" />
-    <Compile Include="Migrations\201501150853072_Initial.Designer.cs">
-      <DependentUpon>201501150853072_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\ApplicationDBContext\201501260933169_InitialCreate.cs" />
+    <Compile Include="Migrations\ApplicationDBContext\201501260933169_InitialCreate.Designer.cs">
+      <DependentUpon>201501260933169_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201501220911338_MoveDB.cs" />
-    <Compile Include="Migrations\201501220911338_MoveDB.Designer.cs">
-      <DependentUpon>201501220911338_MoveDB.cs</DependentUpon>
+    <Compile Include="Migrations\ApplicationDBContext\201501291113044_InitialDatabaseCreation.cs" />
+    <Compile Include="Migrations\ApplicationDBContext\201501291113044_InitialDatabaseCreation.Designer.cs">
+      <DependentUpon>201501291113044_InitialDatabaseCreation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\ApplicationDBContext\201501291117505_AddData.cs" />
+    <Compile Include="Migrations\ApplicationDBContext\201501291117505_AddData.Designer.cs">
+      <DependentUpon>201501291117505_AddData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ApplicationDBContext\Configuration.cs" />
+    <Compile Include="Migrations\MovieDBContext\201501291113372_InitialDatabaseCreation.cs" />
+    <Compile Include="Migrations\MovieDBContext\201501291113372_InitialDatabaseCreation.Designer.cs">
+      <DependentUpon>201501291113372_InitialDatabaseCreation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MovieDBContext\201501291117246_AddData.cs" />
+    <Compile Include="Migrations\MovieDBContext\201501291117246_AddData.Designer.cs">
+      <DependentUpon>201501291117246_AddData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MovieDBContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -630,18 +645,27 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201501150853072_Initial.resx">
-      <DependentUpon>201501150853072_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201501220911338_MoveDB.resx">
-      <DependentUpon>201501220911338_MoveDB.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Resources\Resources.csproj">
       <Project>{b3fca9f2-eb16-4b09-a262-eebd686d55ac}</Project>
       <Name>Resources</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\ApplicationDBContext\201501260933169_InitialCreate.resx">
+      <DependentUpon>201501260933169_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\ApplicationDBContext\201501291113044_InitialDatabaseCreation.resx">
+      <DependentUpon>201501291113044_InitialDatabaseCreation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\ApplicationDBContext\201501291117505_AddData.resx">
+      <DependentUpon>201501291117505_AddData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MovieDBContext\201501291113372_InitialDatabaseCreation.resx">
+      <DependentUpon>201501291113372_InitialDatabaseCreation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MovieDBContext\201501291117246_AddData.resx">
+      <DependentUpon>201501291117246_AddData.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -673,6 +697,13 @@
   </ProjectExtensions>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SSDT\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(VisualStudioVersion)' == ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(VisualStudioVersion)' != ''" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
