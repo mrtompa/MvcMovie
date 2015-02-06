@@ -31,3 +31,5 @@ _ReSharper*/
 *.DotSettings.user
 
 MvcMovie/App_Start/Startup.Auth.cs
+/$tf
+/Packages.dgml
