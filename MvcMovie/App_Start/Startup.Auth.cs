@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web.Configuration;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -58,11 +59,11 @@ namespace MvcMovie
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = WebConfigurationManager.AppSettings["GoogClientID"],
+                ClientSecret = WebConfigurationManager.AppSettings["GoogClientSecret"]
+            });
         }
     }
 }

@@ -3,6 +3,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Reflection;
 using System.Runtime.Versioning;
+using System.Security.Cryptography.X509Certificates;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace MvcMovie.Models
 {
@@ -40,5 +42,7 @@ namespace MvcMovie.Models
     public class MovieDBContext : DbContext
     {
         public DbSet<Movie> Movies { get; set; }
+
+        public DbSet<Contact> Contacts { get; set; }
     }
 }

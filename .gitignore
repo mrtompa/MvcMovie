@@ -22,8 +22,14 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
+[Mm]igrations/
+bin/
 
 # ReSharper is a .NET coding add-in
 _ReSharper*/
 *.[Rr]e[Ss]harper
 *.DotSettings.user
+
+MvcMovie/App_Start/Startup.Auth.cs
+/$tf
+/Packages.dgml
